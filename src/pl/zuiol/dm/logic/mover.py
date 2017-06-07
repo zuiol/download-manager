@@ -11,11 +11,18 @@ def moveHandledFile(sourceFilePath, key_words):
     print(key_words)
     
     words = key_words.split(" ")
-    destinationFilePath = "C:\\Users\\sg0212049\\Downloads\\DownloadManager"
+    destinationFilePath = "C:\\Users\\sg0212049\\Downloads\\DownloadManager\\"
     for word in words:
-        destinationFilePath.__add__(word + "\\")
+        print(word)
+        destinationFilePath = destinationFilePath.__add__(word + "\\")
     
-    print(destinationFilePath);
-        
+    print("destination: " + destinationFilePath)
+    print("source: " + sourceFilePath)
+    
+    names = sourceFilePath.split("\\")
+    for name in names:
+        if "." in name:
+            destinationFilePath = destinationFilePath.__add__(name)
+            
     moveFile(sourceFilePath, destinationFilePath)
     
