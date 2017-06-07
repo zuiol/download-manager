@@ -22,7 +22,7 @@ class MyHandler(PatternMatchingEventHandler):
         
 if __name__ == '__main__':
     observer = Observer()
-    observer.schedule(MyHandler(), "C:\\Damian\\", False)
+    observer.schedule(MyHandler(), "C:\\Users\\sg0212049\\Downloads", False)
     observer.start()
     
     try:

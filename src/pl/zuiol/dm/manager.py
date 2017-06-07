@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print("2")
     
     observer = observers.Observer()
-    observer.schedule(MyHandler(mw), "C:\\Downloads\\", False)
+    observer.schedule(MyHandler(mw), "C:\\Users\\sg0212049\\Downloads\\", False)
     observer.start()
     
     """ try:
