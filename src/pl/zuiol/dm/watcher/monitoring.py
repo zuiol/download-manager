@@ -1,5 +1,3 @@
-import time
-from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 
 class MyHandler(PatternMatchingEventHandler):
@@ -15,20 +13,6 @@ class MyHandler(PatternMatchingEventHandler):
         
         print(event.src_path, event.event_type)  # print now only for degug
         self.main_window.showApp(event.src_path)
-        print("OOO")
         
     def on_created(self, event):
         self.process(event)
-        
-if __name__ == '__main__':
-    observer = Observer()
-    observer.schedule(MyHandler(), "C:\\Users\\sg0212049\\Downloads", False)
-    observer.start()
-    
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        observer.stop()
-        
-    observer.join()

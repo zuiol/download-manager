@@ -5,19 +5,25 @@ from PyQt5.QtWidgets import QApplication
 from watchdog import observers
 from pl.zuiol.dm.watcher.monitoring import MyHandler
 from pl.zuiol.dm.gui import MainWindow
+from configparser import SafeConfigParser
+
 
 
 if __name__ == '__main__':    
     
+    #Read properties
+    config = SafeConfigParser()
+    config.read("..\\..\\..\\..\\properties\\settings.ini")
+    sourceDirectory = config['defaults']['source']
+    print(sourceDirectory)
+    
     #Start window for application
-    print("1")
     app = QApplication(sys.argv)
     mw = MainWindow()
     mw.show()
-    print("2")
     
     observer = observers.Observer()
-    observer.schedule(MyHandler(mw), "C:\\Users\\sg0212049\\Downloads\\", False)
+    observer.schedule(MyHandler(mw), sourceDirectory, False)
     observer.start()
     
     """ try:

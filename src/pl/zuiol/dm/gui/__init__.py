@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
         
         self.ok_button = QPushButton("OK", self)
         grid_layout.addWidget(self.ok_button, 3, 1)
+        self.ok_button.setDefault(True)
         self.ok_button.clicked.connect(self.buttonClicked) 
         
         #init QSystemTryIcon
